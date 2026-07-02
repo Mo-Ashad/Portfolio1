@@ -1,0 +1,1 @@
+Certificates placeholders. Add certificate images or PDFs in this folder.

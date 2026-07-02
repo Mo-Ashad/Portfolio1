@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pyc
+.env
+instance/
+.vscode/
+/.idea/
+node_modules/
+dist/
+
+# Local contact data (optional keep)
+contact_messages.json
