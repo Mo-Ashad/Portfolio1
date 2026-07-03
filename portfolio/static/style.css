@@ -109,9 +109,13 @@ body{background:radial-gradient(1200px 600px at 10% 10%, rgba(123,97,255,0.12), 
 .project-actions a{padding:6px 10px;border-radius:8px;text-decoration:none;color:#fff;background:linear-gradient(90deg,var(--accent),var(--accent-2));margin-left:6px}
 
 /* Certificates */
+.cert-controls{display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;margin-bottom:1rem}
+.cert-filter{padding:0.55rem 0.95rem;border-radius:8px;border:none;background:transparent;color:var(--muted);cursor:pointer}
+.cert-filter.active{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#021020}
 .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .cert-card{background:var(--card);padding:1rem;border-radius:12px;border:1px solid var(--glass-border)}
 .cert-card img{width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:0.6rem}
+.cert-card .cert-desc{color:var(--muted);font-size:0.95rem;line-height:1.5;margin:0.5rem 0}
 
 /* Contact */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;padding:3rem 0}

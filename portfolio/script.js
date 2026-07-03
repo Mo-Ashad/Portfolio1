@@ -124,21 +124,34 @@ qa('.filter').forEach(btn=>{
 
 // Certificates
 const certs = [
-  {name:'CodeAlpha Cloud Computing Internship Certificate',plat:'CodeAlpha',desc:'Cloud Computing internship certificate',img:'#'},
-  {name:'Kubernetes Certificate',plat:'Various',desc:'Kubernetes fundamentals certificate',img:'#'},
-  {name:'Cloud Computing Certificate',plat:'Various',desc:'Cloud fundamentals certificate',img:'#'},
-  {name:'Python for Data Science',plat:'IBM',desc:'Certificate for Python in Data Science',img:'#'},
-  {name:'Machine Learning',plat:'IBM',desc:'Machine Learning certificate',img:'#'},
-  {name:'SQL',plat:'Simplilearn',desc:'SQL fundamentals certificate',img:'#'},
-  {name:'Tata Data Analytics Virtual Internship',plat:'Tata',desc:'4 hour virtual internship',img:'#'},
-  {name:'JP Morgan Virtual Internship',plat:'JP Morgan',desc:'4 hour virtual internship',img:'#'},
-  {name:'DecodeLab Internship',plat:'DecodeLab',desc:'1 month practical internship',img:'#'}
+  {name:'Python for Data Science',plat:'IBM',desc:'IBM certification for core Python and data analysis workflows.',img:'images/Python certificate for data science by IBM.png',filter:'python',link:'images/Python certificate for data science by IBM.png'},
+  {name:'Machine Learning',plat:'IBM',desc:'IBM Machine Learning certificate covering model building and evaluation.',img:'images/Machine Learning certificate by IBM.png',filter:'ml',link:'images/Machine Learning certificate by IBM.png'},
+  {name:'SQL Fundamentals',plat:'Simplilearn',desc:'SQL certification covering database querying, joins, and data management.',img:'images/SQL certificate by simplilearn.png',filter:'sql',link:'images/SQL certificate by simplilearn.png'},
+  {name:'Kubernetes Fundamentals',plat:'IBM',desc:'Kubernetes certification focusing on container orchestration and cluster management.',img:'images/IBM kubernet certificate.png',filter:'cloud',link:'images/IBM kubernet certificate.png'},
+  {name:'Tata Gen AI Data Analytics Internship',plat:'Tata',desc:'Virtual internship certificate on data analytics and AI-powered problem solving.',img:'images/Tata Gen Ai powred data analytics certificate.png',filter:'data',link:'images/Tata Gen Ai powred data analytics certificate.png'},
+  {name:'JP Morgan Quantitative Research Internship',plat:'JP Morgan',desc:'Virtual experience certificate in quantitative research and data problem solving.',img:'images/JP Morgan Quantitative research certificate.png',filter:'data',link:'images/JP Morgan Quantitative research certificate.png'},
+  {name:'Cloud Computing Internship',plat:'CodeAlpha',desc:'Practical cloud computing internship certificate covering cloud architecture and deployment.',img:'images/cert-placeholder.png',filter:'cloud',link:'#'},
+  {name:'Cloud Computing Certificate',plat:'Various',desc:'Certificate focused on cloud fundamentals, networking, and deployment basics.',img:'images/cert-placeholder.png',filter:'cloud',link:'#'},
+  {name:'DecodeLab Internship',plat:'DecodeLab',desc:'Practical internship certificate on real-world technical projects.',img:'images/cert-placeholder.png',filter:'data',link:'#'}
 ];
 const certGrid = q('#cert-grid');
 certs.forEach(c=>{
   const d = document.createElement('div');d.className='cert-card';
-  d.innerHTML = `<img src="images/cert-placeholder.png" alt="${c.name}"><h4>${c.name}</h4><p>${c.plat}</p><div><a href="#" class="btn outline">View Certificate</a></div>`;
+  d.dataset.filter = c.filter;
+  d.innerHTML = `<img src="${c.img}" alt="${c.name}"><h4>${c.name}</h4><p>${c.plat}</p><p class="cert-desc">${c.desc}</p><div><a href="${c.link}" class="btn outline" target="_blank">View Certificate</a></div>`;
   certGrid.appendChild(d);
+});
+
+// Certificate filtering
+qa('.cert-filter').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    qa('.cert-filter').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    qa('.cert-card').forEach(card=>{
+      if(f==='all' || card.dataset.filter===f) card.style.display='block'; else card.style.display='none';
+    });
+  });
 });
 
 // Services
