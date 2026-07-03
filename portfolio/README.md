@@ -25,7 +25,7 @@ Files of interest:
 - app.py — Flask backend. Routes: `/`, `/contact` (POST), `/health`, `/messages` (demo).
 - templates/index.html — Frontend HTML served by Flask.
 - static/style.css, `static/script.js` — Frontend assets.
-- `contact_messages.json` — Stores received messages (created on first contact submission).
+- contact_messages.json — Stores received messages (created on first contact submission).
 
 Notes:
 
