@@ -31,3 +31,5 @@ Notes:
 
 - The contact form posts JSON to `/contact` and the backend saves messages to `contact_messages.json`.
 - For production, consider using a proper database (SQLite/Postgres) and protecting the `/messages` endpoint.
+
+Updated portfolio with certificates, DevOps skills, and cloud computing internship details.
