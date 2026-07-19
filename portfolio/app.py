@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, jsonify, send_from_directory
 from datetime import datetime
 import json
 import os
-
 app = Flask(__name__, static_folder='static', template_folder='templates')
 
 DATA_FILE = os.path.join(os.path.dirname(__file__), 'contact_messages.json')
