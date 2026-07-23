@@ -15,7 +15,6 @@ def load_messages():
     except Exception:
         return []
         
-        
 def save_message(msg):
     messages = load_messages()
     messages.append(msg)
