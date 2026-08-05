@@ -97,7 +97,7 @@ if(window.IntersectionObserver && skillsSection){
 // Projects data
 const projects = [
   {title:'Dockerized Flask Web Application',desc:'A Flask web application containerized using Docker with a Dockerfile, image build process, and port mapping.',tech:'Python, Flask, Docker',tag:'devops',github:'#',live:'#'},
-  {title:'CI/CD Pipeline with GitHub Actions',desc:'Automated build and deployment workflow using GitHub Actions triggered on git pushes.',tech:'GitHub Actions, Git, YAML, Python',tag:'devops',github:'#',live:'#'},
+  {title:'CI/CD Pipeline with GitHub Actions',desc:'Automated build and deployment workflow using GitHub Actions triggered on git pushes.',tech:'GitHub Actions, Git, YAML, Python',tag:'devops',github:'https://github.com/Mo-Ashad/CI-CD-Pipeline-with-GitHub-Actions',live:'https://github.com/Mo-Ashad/CI-CD-Pipeline-with-GitHub-Actions'},
   {title:'Kubernetes Deployment Practice',desc:'Kubernetes manifests for deployments, services, and scaling — practice lab for orchestration.',tech:'Kubernetes, Docker, YAML',tag:'devops',github:'#',live:'#'},
   {title:'Cloud Computing Practice Labs',desc:'Collection of cloud practice labs covering Linux, Docker, Kubernetes, cloud networking, and deployment.',tech:'Cloud, Linux, Docker, Kubernetes',tag:'cloud',github:'#',live:'#'},
   {title:'Terraform Infrastructure as Code Basics',desc:'Beginner-level Terraform project to provision simple cloud resources and manage infrastructure as code.',tech:'Terraform, IaC, AWS Basics',tag:'devops',github:'#',live:'#'}
