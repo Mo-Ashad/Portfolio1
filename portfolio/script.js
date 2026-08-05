@@ -132,8 +132,7 @@ const certs = [
   {name:'JP Morgan Quantitative Research Internship',plat:'JP Morgan',desc:'Virtual experience certificate in quantitative research and data problem solving.',img:'images/JP Morgan Quantitative research certificate.png',filter:'data',link:'images/JP Morgan Quantitative research certificate.png'},
   {name:'CodeAlpha — Cloud Computing Internship',plat:'CodeAlpha',desc:'Practical cloud computing internship certificate covering cloud architecture and deployment.',img:'images/Claud internship certificate.png',filter:'cloud',link:'images/Claud internship certificate.png'},
   {name:'Cisco Basic Networking Certificate',plat:'Cisco',desc:'Completed Cisco basic networking certification covering routing, switching, TCP/IP, and network fundamentals.',img:'certificates/CISCO.png',filter:'cloud',link:'certificates/CISCO.png'},
-  {name:'Cloud Computing Certificate',plat:'Various',desc:'Certificate focused on cloud fundamentals, networking, and deployment basics.',img:'images/cert-placeholder.png',filter:'cloud',link:'#'},
-  {name:'DecodeLab Internship',plat:'DecodeLab',desc:'Practical internship certificate on real-world technical projects.',img:'images/cert-placeholder.png',filter:'data',link:'#'}
+  {name:'Cloud Computing Certificate',plat:'Various',desc:'Certificate focused on cloud fundamentals, networking, and deployment basics.',img:'images/cert-placeholder.png',filter:'cloud',link:'#'}
 ];
 const certGrid = q('#cert-grid');
 certs.forEach(c=>{

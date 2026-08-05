@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, send_from_directory
+from flask import Flask, render_template, request, jsonify, send_from_directory, send_file
 from datetime import datetime
 import json
 import os
@@ -30,6 +30,12 @@ def index():
 @app.route('/health')
 def health():
     return jsonify({'status': 'ok', 'time': datetime.utcnow().isoformat() + 'Z'})
+
+
+@app.route('/download-resume')
+def download_resume():
+    resume_path = os.path.join(os.path.dirname(__file__), 'static', 'resume', 'Ashad_Ansari_Resume.pdf')
+    return send_file(resume_path, as_attachment=True, download_name='Ashad_Ansari_Resume.pdf', mimetype='application/pdf')
 
 
 @app.route('/contact', methods=['POST'])
