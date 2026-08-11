@@ -25,17 +25,27 @@
           <li><a href="#skills" class="nav-link">Skills</a></li>
           <li><a href="#resume" class="nav-link">Resume</a></li>
           <li><a href="#services" class="nav-link">Services</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
           <li><a href="#certificates" class="nav-link">Certificates</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
       <div class="nav-actions">
         <a href="/download-resume" class="btn ghost" id="resume-btn" target="_blank" rel="noopener noreferrer">Download Resume</a>
-        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </header>
+
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <div class="mobile-nav-head">
+      <span>Menu</span>
+    </div>
+    <a href="#about" class="mobile-nav-link" data-target="about"><i class="fa fa-user"></i>About</a>
+    <a href="#certificates" class="mobile-nav-link" data-target="certificates"><i class="fa fa-certificate"></i>Certificates</a>
+    <a href="#skills" class="mobile-nav-link" data-target="skills"><i class="fa fa-code"></i>Skills</a>
+    <a href="#services" class="mobile-nav-link" data-target="services"><i class="fa fa-tools"></i>Services</a>
+  </nav>
 
   <aside class="social-sidebar">
     <a href="https://github.com/Mo-Ashad" target="_blank"><i class="fab fa-github"></i></a>
@@ -57,7 +67,7 @@
 
           <div class="hero-ctas">
             <a href="/download-resume" class="btn primary" target="_blank" rel="noopener noreferrer">Download Resume</a>
-            <a href="#projects" class="btn outline">View Projects</a>
+            <a href="#certificates" class="btn outline">View Certificates</a>
             <a href="#contact" class="btn ghost">Hire Me</a>
           </div>
 
@@ -168,22 +178,6 @@
           <p>What I can help you with</p>
         </div>
         <div class="services-grid">
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="projects">
-      <div class="container">
-        <div class="section-head">
-          <h2>Projects</h2>
-          <p>Selected DevOps & Cloud projects</p>
-        </div>
-        <div class="projects-controls">
-          <button class="filter active" data-filter="all">All</button>
-          <button class="filter" data-filter="devops">DevOps</button>
-          <button class="filter" data-filter="cloud">Cloud</button>
-        </div>
-        <div class="projects-grid" id="projects-grid">
         </div>
       </div>
     </section>

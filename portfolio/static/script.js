@@ -13,9 +13,45 @@ window.addEventListener('load', ()=>{
 // Mobile nav
 const hamburger = q('#hamburger');
 const nav = q('#nav-menu');
+const mobileNav = q('#mobile-nav');
+const mobileNavOverlay = q('#mobile-nav-overlay');
+const mobileNavLinks = qa('.mobile-nav-link');
+
+function closeMobileMenu(){
+  mobileNav && mobileNav.classList.remove('open');
+  mobileNavOverlay && mobileNavOverlay.classList.remove('open');
+  hamburger && hamburger.classList.remove('is-active');
+  hamburger && hamburger.setAttribute('aria-expanded', 'false');
+}
+
+function openMobileMenu(){
+  mobileNav && mobileNav.classList.add('open');
+  mobileNavOverlay && mobileNavOverlay.classList.add('open');
+  hamburger && hamburger.classList.add('is-active');
+  hamburger && hamburger.setAttribute('aria-expanded', 'true');
+}
+
 hamburger && hamburger.addEventListener('click', ()=>{
-  nav.classList.toggle('open');
-  hamburger.classList.toggle('is-active');
+  const isOpen = hamburger.classList.contains('is-active');
+  if(isOpen){ closeMobileMenu(); } else { openMobileMenu(); }
+});
+
+mobileNavOverlay && mobileNavOverlay.addEventListener('click', closeMobileMenu);
+
+mobileNavLinks.forEach(link=>{
+  link.addEventListener('click', e=>{
+    e.preventDefault();
+    const targetId = link.getAttribute('data-target');
+    const target = q(`#${targetId}`);
+    if(target){
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+    closeMobileMenu();
+  });
+});
+
+window.addEventListener('resize', ()=>{
+  if(window.innerWidth > 700){ closeMobileMenu(); }
 });
 
 // Smooth scroll and active link
@@ -94,34 +130,6 @@ if(window.IntersectionObserver && skillsSection){
   window.addEventListener('load', fillSkillBars);
 }
 
-// Projects data
-const projects = [
-  {title:'Dockerized Flask Web Application',desc:'A Flask web application containerized using Docker with a Dockerfile, image build process, and port mapping.',tech:'Python, Flask, Docker',tag:'devops',github:'#',live:'#'},
-  {title:'CI/CD Pipeline with GitHub Actions',desc:'Automated build and deployment workflow using GitHub Actions triggered on git pushes.',tech:'GitHub Actions, Git, YAML, Python',tag:'devops',github:'https://github.com/Mo-Ashad/CI-CD-Pipeline-with-GitHub-Actions',live:'https://github.com/Mo-Ashad/CI-CD-Pipeline-with-GitHub-Actions'},
-  {title:'Kubernetes Deployment Practice',desc:'Kubernetes manifests for deployments, services, and scaling — practice lab for orchestration.',tech:'Kubernetes, Docker, YAML',tag:'devops',github:'#',live:'#'},
-  {title:'Cloud Computing Practice Labs',desc:'Collection of cloud practice labs covering Linux, Docker, Kubernetes, cloud networking, and deployment.',tech:'Cloud, Linux, Docker, Kubernetes',tag:'cloud',github:'#',live:'#'},
-  {title:'Terraform Infrastructure as Code Basics',desc:'Beginner-level Terraform project to provision simple cloud resources and manage infrastructure as code.',tech:'Terraform, IaC, AWS Basics',tag:'devops',github:'#',live:'#'}
-];
-const projectsGrid = q('#projects-grid');
-projects.forEach(p=>{
-  const card = document.createElement('div');card.className='project-card';
-  card.dataset.tag = p.tag;
-  card.innerHTML = `<img src="/static/images/project-placeholder.png" alt="${p.title}"><h3>${p.title}</h3><p>${p.desc}</p><div class="project-meta"><div class="project-tags"><span class="tag">${p.tech}</span></div><div class="project-actions"><a href="${p.github}" target="_blank">GitHub</a><a href="${p.live}" target="_blank">Live Demo</a></div></div>`;
-  projectsGrid.appendChild(card);
-});
-
-// Project filtering
-qa('.filter').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    qa('.filter').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    const f = btn.dataset.filter;
-    qa('.project-card').forEach(card=>{
-      if(f==='all'||card.dataset.tag===f) card.style.display='block'; else card.style.display='none';
-    });
-  });
-});
-
 // Certificates
 const certs = [
   {name:'Python for Data Science',plat:'IBM',desc:'IBM certification for core Python and data analysis workflows.',img:'/static/images/Python certificate for data science by IBM.png',filter:'python',link:'/static/images/Python certificate for data science by IBM.png'},
@@ -132,9 +140,8 @@ const certs = [
   {name:'JP Morgan Quantitative Research Internship',plat:'JP Morgan',desc:'Virtual experience certificate in quantitative research and data problem solving.',img:'/static/images/JP Morgan Quantitative research certificate.png',filter:'data',link:'/static/images/JP Morgan Quantitative research certificate.png'},
   {name:'CodeAlpha — Cloud Computing Internship',plat:'CodeAlpha',desc:'Practical cloud computing internship certificate covering cloud architecture and deployment.',img:'/static/images/Claud internship certificate.png',filter:'cloud',link:'/static/images/Claud internship certificate.png'},
   {name:'Cisco Basic Networking Certificate',plat:'Cisco',desc:'Completed Cisco basic networking certification covering routing, switching, TCP/IP, and network fundamentals.',img:'/static/images/CISCO.png',filter:'cloud',link:'/static/images/CISCO.png'},
-  {name:'Cloud Computing Certificate',plat:'Various',desc:'Certificate focused on cloud fundamentals, networking, and deployment basics.',img:'/static/images/cert-placeholder.png',filter:'cloud',link:'/static/images/cert-placeholder.png'},
-  {name:'AWS Certificate',plat:'AWS',desc:'Certificate highlighting AWS cloud fundamentals and core services knowledge.',img:'/static/images/cert-placeholder.png',filter:'cloud',link:'/static/images/cert-placeholder.png'},
-  {name:'Azure Certificate',plat:'Microsoft Azure',desc:'Certificate highlighting Azure cloud fundamentals and deployment concepts.',img:'/static/images/cert-placeholder.png',filter:'cloud',link:'/static/images/cert-placeholder.png'}
+  {name:'Fundamentals of DevOps on AWS',plat:'AWS',desc:'AWS certificate for DevOps fundamentals.',img:'/static/images/AWS.png',filter:'cloud',link:'/static/images/AWS.png'},
+  {name:'Introduction to the Basics of Azure Services',plat:'Azure',desc:'Azure certificate covering the basics of Azure services.',img:'/static/images/Azure.png',filter:'cloud',link:'/static/images/Azure.png'}
 ];
 const certGrid = q('#cert-grid');
 certs.forEach(c=>{

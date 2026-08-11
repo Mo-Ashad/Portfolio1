@@ -34,8 +34,19 @@ body{background:radial-gradient(1200px 600px at 10% 10%, rgba(123,97,255,0.12), 
 .btn.ghost{background:transparent}
 .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#021020;border:none;box-shadow:0 8px 30px rgba(78,225,255,0.08)}
 .btn.outline{background:transparent;border:1px solid rgba(255,255,255,0.06)}
-.hamburger{display:none;background:transparent;border:none;padding:10px;cursor:pointer}
-.hamburger span{display:block;width:22px;height:2px;background:#cbd6e6;margin:4px 0;border-radius:2px}
+.hamburger{display:none;background:transparent;border:none;padding:10px;cursor:pointer;z-index:1001}
+.hamburger span{display:block;width:22px;height:2px;background:#cbd6e6;margin:4px 0;border-radius:2px;transition:all .25s ease}
+.hamburger.is-active span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.hamburger.is-active span:nth-child(2){opacity:0}
+.hamburger.is-active span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mobile-nav-overlay{position:fixed;inset:0;background:rgba(2,2,8,0.6);backdrop-filter:blur(2px);opacity:0;visibility:hidden;transition:all .25s ease;z-index:998}
+.mobile-nav-overlay.open{opacity:1;visibility:visible}
+.mobile-nav{position:fixed;top:0;right:0;height:100vh;width:min(320px, 86vw);background:linear-gradient(180deg,rgba(15,23,36,0.98),rgba(6,13,24,0.98));border-left:1px solid var(--glass-border);box-shadow:0 20px 60px rgba(2,2,8,0.8);padding:1rem 1rem 2rem;display:flex;flex-direction:column;gap:0.5rem;transform:translateX(100%);transition:transform .28s ease;z-index:999}
+.mobile-nav.open{transform:translateX(0)}
+.mobile-nav-head{padding:0.65rem 0 1rem;font-weight:700;color:#fff;border-bottom:1px solid var(--glass-border);margin-bottom:0.35rem}
+.mobile-nav-link{display:flex;align-items:center;gap:0.75rem;padding:0.85rem 0.9rem;border-radius:10px;color:#eaf6ff;text-decoration:none;background:rgba(255,255,255,0.03);border:1px solid transparent}
+.mobile-nav-link i{color:var(--accent);width:18px;text-align:center}
+.mobile-nav-link:hover{border-color:var(--glass-border);background:rgba(255,255,255,0.05)}
 
 /* Social sidebar */
 .social-sidebar{position:fixed;left:20px;top:40%;display:flex;flex-direction:column;gap:10px;background:transparent;z-index:90}
@@ -114,7 +125,7 @@ body{background:radial-gradient(1200px 600px at 10% 10%, rgba(123,97,255,0.12), 
 .cert-filter.active{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#021020}
 .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .cert-card{background:var(--card);padding:1rem;border-radius:12px;border:1px solid var(--glass-border)}
-.cert-card img{width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:0.6rem}
+.cert-card img{width:100%;height:220px;object-fit:contain;background:#fff;border-radius:8px;margin-bottom:0.6rem;padding:0.25rem}
 .cert-card .cert-desc{color:var(--muted);font-size:0.95rem;line-height:1.5;margin:0.5rem 0}
 
 /* Contact */
